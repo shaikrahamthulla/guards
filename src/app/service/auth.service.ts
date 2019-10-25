@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  //data = {role: "admin"};
-  data = {role: "user"};
+  data = {role: "admin"};
+  //data = {role: "user"};
 
   constructor() { }
 

@@ -5,8 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <h1>Dashboard Layout</h1>
     <p>
-      <a routerLink = "home">Home</a>
-      <a routerLink = "admin">Admin</a>
+      <a routerLink = "/dashboard/home">Home</a>
+      <a routerLink = "/dashboard/admin">Admin</a>
     </p>
     <router-outlet></router-outlet>
   `,
