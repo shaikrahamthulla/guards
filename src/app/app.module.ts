@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ClientModule } from './client/client.module';
 import { UserModule } from './user/user.module';
+import { RxjsoperatorsModule } from './rxjsoperators/rxjsoperators.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -26,7 +27,8 @@ import { APP_ROUTES } from './app.routes';
     RouterModule.forRoot(APP_ROUTES),
     DashboardModule,
     ClientModule,
-    UserModule
+    UserModule,
+    RxjsoperatorsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

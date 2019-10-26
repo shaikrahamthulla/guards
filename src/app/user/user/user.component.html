@@ -94,7 +94,7 @@
         <td>
             <input type = "checkbox" name = "isTCAccepted" ngModel required #tc="ngModel" />
             
-            <div *ngIf = "tc.error && userForm.Submitted && !isValidFormSubmitted" class = "error">
+            <div *ngIf = "tc.errors && userForm.Submitted && !isValidFormSubmitted" class = "error">
               <div *ngIf = "tc.errors.required"> 
                 Accept T & C 
               </div>
