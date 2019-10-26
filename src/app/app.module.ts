@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ClientModule } from './client/client.module';
+import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -20,9 +22,11 @@ import { APP_ROUTES } from './app.routes';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(APP_ROUTES),
     DashboardModule,
-    ClientModule
+    ClientModule,
+    UserModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

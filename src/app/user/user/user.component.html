@@ -1,0 +1,117 @@
+<div>
+
+  <h1>User Information</h1>
+
+  <p *ngIf = "isValidFormSubmitted" [ngClass] = "success">
+      Form Submitted Successfully.
+  </p>
+
+  <form #userForm = "ngForm" (ngSubmit) = "onFormSubmitted(userForm)" novalidate>
+
+      <table>
+          <tr>
+
+            <td>User Name : </td>
+            <td>
+                <input name = "userName" minlength = "5" required ngModel #userName = "ngModel" />
+                <div *ngIf = "userName.errors && userForm.Submitted && !isValidFormSubmitted" class="error">
+                    <div *ngIf = "userName.errors.required">
+                        Username Required.
+                    </div>
+                    <div *ngIf = "userName.errors.minlength">
+                      Minimum length 5 charecters.
+                  </div>
+                </div>
+              </td>
+          </tr>
+          <tr>
+
+            <td>Age : </td>
+            <td>
+                <input type = "number" name="age" required min = 18 ngModel #age = "ngModel" />
+                <div *ngIf = "age.errors && userForm.Submitted && !isValidFormSubmitted">
+                    <div *ngIf = "age.errors.required">
+                      Age Required.
+                    </div>
+                </div>
+            </td>
+          </tr>
+
+          <tr>
+              <td>Select Profile : </td>
+              <td>
+                  <select name = "profile" [ngModel] = "initialProfileVal" required ngModel #profile = "ngModel" >
+                    <option [ngValue] = "null">Choose your profile</option>
+                    <option *ngFor = "let prf of allProfiles" [ngValue] = "prf">
+                      {{prf.prName}}
+                    </option>
+                  </select>
+                  <div *ngIf = "profile.errors && userForm.Submitted && !isValidFormSubmitted" class = "error">
+                    <div *ngIf = "age.errors.required">
+                      Profile Required.
+                    </div>
+                  </div>
+
+              </td>
+          </tr>
+
+          <tr>
+              <td>Technoloioes </td>
+              <td>
+                  <select multiple name = "technologies" [compareWith] = "compareTech" ngModel required #selectedTechs = "ngModel">
+                      <option *ngFor = "let tech of allTechnologies" [ngValue] = "tech">{{tech.techName}}</option>
+                  </select>
+                  <div *ngIf = "selectedTechs.error && userForm.Submitted && !isValidFormSubmitted"  class = "error">
+                      <div *ngIf = "selectedTechs.errors.required"> 
+                        Technologies required
+                      </div>
+                  </div>
+              </td>
+          </tr>
+
+          <tr>
+            <td>Gender : </td>
+            <td>
+                <input type = "radio" value = "male" name = "gender" ngModel required #gender="ngModel" /> Male
+                <input type = "radio" value = "female" name = "gender" ngModel required #gender="ngModel" /> Female
+                <div *ngIf = "gender.error && userForm.Submitted && !isValidFormSubmitted"  class = "error">
+                  <div *ngIf = "gender.errors.required" > 
+                    Gender required
+                  </div>
+              </div>
+            </td>
+        </tr>
+
+        <tr>
+          <td>Are you Married? : </td>
+          <td>
+              <input type = "checkbox" name = "isMarried" ngModel />
+          </td>
+      </tr>
+
+      <tr>
+        <td>Accept T & C : </td>
+        <td>
+            <input type = "checkbox" name = "isTCAccepted" ngModel required #tc="ngModel" />
+            
+            <div *ngIf = "tc.error && userForm.Submitted && !isValidFormSubmitted" class = "error">
+              <div *ngIf = "tc.errors.required"> 
+                Accept T & C 
+              </div>
+          </div>
+        </td>
+    </tr>
+
+    <tr>
+        <td colspan = "2">
+            <button>Submit</button>
+            <button type = "button" (click) = "setDefaultValues(userForm)">Set Default</button>
+            <button type = "reset" (click) = "resetFormUser(userForm)" >Reset</button>
+        </td>
+    </tr>
+
+      </table>
+
+  </form>
+
+</div>>

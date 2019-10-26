@@ -8,6 +8,7 @@ export const APP_ROUTES: Routes = [
     { path: 'login', component: LoginComponent },    
     { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule'},
     { path: 'client', loadChildren: './client/client.module#ClientModule'  },
+    { path: 'user', loadChildren: './user/user.module#UserModule'  },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     { path: '**', component: PageNotFoundComponent }
 
